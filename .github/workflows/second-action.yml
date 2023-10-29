@@ -1,0 +1,54 @@
+# This is a basic workflow to help you get started with Actions
+
+name: NodeJS Workflow
+
+# Controls when the workflow will run
+# Allows you to run this workflow on git push
+
+on: push
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+jobs:
+  
+  # This workflow contains a single job called "nodejs-app"
+  
+  nodejs-app:
+  
+    # The type of runner that the job will run on. You can get list of runner from latest GitHub documents or google. 
+    #However, for this example we are using ubuntu-latest runner.
+    
+    runs-on: ubuntu-latest
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    
+    steps:
+    
+      # Runs a single command using the runners shell
+      # NodeJS is prinstalled on this runner you can confirm the list of preinstalled softwares and programming languauge from GitHub Runner Documentation. 
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      # If we need to install node in case it is not already installed or if we want latest version of node installed.
+      # Version 16 of NodeJS is installed and we will try to install version 18 for demo purpose
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Now next step is install dependencies.
+      # npm is Node Package Manager using - npm install or npm ci
+      # npm ci will ensure that we do not suddenly install breaking version.
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Run tests on this runner.
+
+      - name: Run tests
+        run: npm test
+        
+
+
+
+
