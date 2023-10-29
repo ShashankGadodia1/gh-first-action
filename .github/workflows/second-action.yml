@@ -31,10 +31,10 @@ jobs:
 
       # If we need to install node in case it is not already installed or if we want latest version of node installed.
       # Version 16 of NodeJS is installed and we will try to install version 18 for demo purpose
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      #- name: Install NodeJS
+      #  uses: actions/setup-node@v3
+      #  with:
+      #    node-version: 18
 
       # Now next step is install dependencies.
       # npm is Node Package Manager using - npm install or npm ci
