@@ -28,6 +28,8 @@ jobs:
       # NodeJS is prinstalled on this runner you can confirm the list of preinstalled softwares and programming languauge from GitHub Runner Documentation. 
       - name: Get Code
         uses: actions/checkout@v3
+        with:
+          repository: "gh-first-action/nodejs project"
 
       # If we need to install node in case it is not already installed or if we want latest version of node installed.
       # Version 16 of NodeJS is installed and we will try to install version 18 for demo purpose
